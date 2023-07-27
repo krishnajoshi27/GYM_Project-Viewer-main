@@ -1,0 +1,183 @@
+.emom-container {
+  /* position: absolute; */
+  background-color: #222242;
+  height: 704px;
+  max-width: 100%;
+  text-align: center;
+  background-image: url("../assets/emom.jpg");
+  background-size: cover;
+  position: relative;
+
+}
+
+.emom-container h1 {
+  position: relative;
+  top: 40px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: rgb(247, 247, 247);
+}
+.emom-form {
+  display: inline-block;
+  color: rgb(6, 6, 5);
+  border: 2px solid rgb(9, 9, 8);
+  border-radius: 10px;
+  position: relative;
+  top: 45px;
+  left:10px;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.emom-form input {
+  border-radius: 5px;
+  width: 5em;
+  border: 3px solid rgb(226, 224, 224);
+  background-color: rgb(248, 244, 244);
+  color: rgb(6, 6, 6);
+}
+.label {
+  padding: 13px;
+  /* font-weight: bold; */
+  font-family: fantasy;
+}
+.emom-wrapper {
+  position: relative;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.emom-wrapper p {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  z-index: 9999;
+  font-size: 48px;
+  margin-bottom: 90px;
+}
+.emom-wrapper p::before {
+  /* display: none; */
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #1c2628;
+  z-index: -1;
+  border-radius: 50%;
+  left: 0%;
+  top: -87%;
+  animation-name: shine;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes shine {
+  0%,
+  100% {
+    box-shadow: 0px 0px 32px -12px rgba(14, 222, 24, 0.9);
+  }
+  50% {
+    box-shadow: 0px 0px 32px 3px rgba(14, 222, 24, 0.9);
+  }
+}
+button {
+  background-color: #222242;
+  padding: 10px 38px;
+  border: 1px solid #a9a9a9;
+  margin-left: 60%;
+  padding-left: 50px;
+  color: #fff;
+  transition: all 0.2s ease;
+  outline: 0;
+}
+
+.btn-start{
+  margin-left: 20px;
+}
+.btn-start,
+.btn-stop,
+.btn-reset {
+  border-radius: 100px;
+  color:rgb(86, 75, 3);
+}
+button:not(:last-child) {
+  margin-right: 20px;
+}
+button:hover,
+button:focus {
+  border-color: #f6b400;
+  color: #f6b400;
+  box-shadow: 0px 4px 27px -12px #f6b400;
+}
+.btn-start:hover {
+  border-color: #5cd72c;
+  color: #5cd72c;
+  box-shadow: 0px 4px 27px -12px #5cd72c;
+}
+.btn-reset:hover {
+  border-color: #d71717;
+  color: #d71717;
+  box-shadow: 0px 4px 27px -12px #d71717;
+}
+#modal-content {
+  /* border-radius: 50%; */
+  background-color: black;
+  height: 100%;
+  width: 100%
+}
+#modal-body {
+  color: white;
+  position: relative;
+  top:35%;
+  left:45%
+
+}
+#modal-body h1 {
+  font-size: 200px;
+  color: white;
+  opacity: 1;
+}
+/* #timer-clock span{
+  display: none;
+} */
+
+@media screen and (max-width: 480px) {
+  .btn-start,
+  .btn-stop,
+  .btn-reset {
+    width: 110px;
+  }
+  #emom-button {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .emom-container {
+    /* position: absolute; */
+    background-color: #222242;
+    height: 617px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .emom-container h1 {
+    position: relative;
+    top: 20px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: rgb(247, 247, 247);
+  }
+  .emom-form {
+    display: inline-block;
+    color: orange;
+    border: 2px solid orange;
+    border-radius: 10px;
+    position: relative;
+    top: 20px;
+    left:10px;
+    padding: 10px;
+  }
+  .emom-wrapper{
+  position: relative;
+  top: 215px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+}

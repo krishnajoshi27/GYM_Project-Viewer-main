@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  /* font-family: fantasy !important; */
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: brightness(60%);
+}
+#custom-alert {
+  position:absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+  }
+  
+nav {
+  background: linear-gradient(rgba(217, 171, 6, 0.98), rgba(0, 0, 0, 98%));
+  color: white !important;
+}
+
+

@@ -1,0 +1,75 @@
+.content{
+    display: flex;
+    padding-block: 2rem;
+}
+.worklog-container{
+    margin-inline: 2rem;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.sidebar{
+    width: 200px;
+}
+.sidebar button{
+    width: 150px;
+    text-align: center;
+    margin-block-end: 5%;
+    border: none;
+}
+
+.sidebar{
+    top: 40px;
+    font-size: larger;
+    width: 20%;
+    margin-left: 2%;
+}
+
+.table-container{
+    width: 80%;
+    height: 500px;
+    padding-inline-end: 3%;
+    text-align: center;
+    overflow: auto;
+}
+
+.table{
+    text-align: center;
+    font-size: larger;
+}
+.table-title{
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    color: #ffae00;
+}
+
+
+@media screen and (max-width: 845px) {
+
+    .sidebar {
+        display: flex;
+        font-size: smaller;
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    .table{
+        font-size: smaller;
+    }
+    
+    .table-container{
+        padding-inline-end: 0;
+        width: 100%;
+    }
+
+    .sidebar button{
+        width: 78px;
+    }
+
+    .content{
+        display: block;
+    }
+
+
+}
