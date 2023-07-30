@@ -30,7 +30,7 @@ function App() {
         <Route path="forgetpassword" element={<ForgetPassword/>}></Route>
         <Route path="user/:id/verify/:token" element={<EmailVerify />} />
 
-        {/*<Route path="workoutlog" element={<WorkoutLog />}></Route>*/}
+        {/* <Route path="workoutlog" element={<WorkoutLog />}></Route> */}
         <Route
           path="basic"
           element={<Protected Component={BasicTimer} />}

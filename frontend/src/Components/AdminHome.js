@@ -10,12 +10,21 @@ export default function AdminHome() {
     comment: '',
   });
 
+  // useEffect(() => {
+  //   getAllUserData();
+  // }, []);
+
+  // const getAllUserData = async () => {
+  //   const userData = await axios.get('http://localhost:8080/admin/getAllUsers');
+  //   setData(userData.data);
+  // };
+
   useEffect(() => {
     getAllUserData();
   }, []);
 
   const getAllUserData = async () => {
-    const userData = await axios.get('http://localhost:8080/admin/getAllUsers');
+    const userData = await axios.get('http://localhost:8080/routes/getWorkouts');
     setData(userData.data);
   };
 
@@ -50,8 +59,9 @@ export default function AdminHome() {
   };
 
   return (
+    <div>
+    <h1>All Users List</h1>
     <div className="grid-workStyles">
-      <h1>All Users List</h1>
       <table className="user-table">
         <thead>
           <tr>
@@ -113,6 +123,7 @@ export default function AdminHome() {
           </form>
         </div>
       )}
+    </div>
     </div>
   );
 }

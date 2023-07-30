@@ -46,10 +46,13 @@ const Header = () => {
             <li>WorkStyles</li>
           </NavLink>
           {token && <NavLink style={navLinkStyles} to="/workoutlog" className="logs">
-            {/*<li>Logs</li>*/}
+            <li>Logs</li>
           </NavLink>}
           <NavLink style={navLinkStyles} to="/about" className="about">
             <li>About</li>
+          </NavLink>
+          <NavLink style={navLinkStyles} to="/notification" className="notifi">
+            <li>Notification</li>
           </NavLink>
           <NavLink className="signup">
             <li>{token ? (

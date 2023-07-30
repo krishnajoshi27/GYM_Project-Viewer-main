@@ -11,7 +11,7 @@ router.get('/test',(req,res)=>{
     res.send('Inside route')
 })
 //Get all Workout logs
-router.get('/get',async(req,res)=>{
+router.get('/getWorkouts',async(req,res)=>{
     try {
         const response = await WorkOut.find({})
         res.send(response)
