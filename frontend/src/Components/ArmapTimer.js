@@ -7,7 +7,8 @@ import longBeep from "../assets/long-beep.mp3";
 import workoutCompleted from "../assets/workoutCompleted.mp3";
 
 const ArmapTimer = () => {
-  const userName = localStorage.getItem('userName')
+  const userName = localStorage.getItem("userName");
+  const userId = localStorage.getItem("userId");
   const [workoutTime, setWorkoutTime] = useState("");
   const [leadTime, setleadTime] = useState(10);
   let [second, setSecond] = useState(0);
@@ -29,7 +30,6 @@ const ArmapTimer = () => {
   }, [isRunning]);
 
   const startTimer = () => {
-    
     if (Number(workoutTime) === 0) {
       alert("Plz Enter WorkOut Time");
     } else {
@@ -59,6 +59,7 @@ const ArmapTimer = () => {
   }
   async function saveLogsToDB() {
     let obj = {
+      userId: userId,
       userName: userName,
       workoutName: "ARMAP Timer",
       duration: workoutTime,

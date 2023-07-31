@@ -9,7 +9,8 @@ import longBeep from "../assets/long-beep.mp3";
 import workoutCompleted from "../assets/workoutCompleted.mp3";
 
 const EmomTimer = () => {
-  const userName = localStorage.getItem('userName')
+  const userName = localStorage.getItem("userName");
+  const userId = localStorage.getItem("userId");
   const [numberOfMinutes, setNumberOfMinutes] = useState(0);
   const [numberOfSeconds, setNumberOfSeconds] = useState(0);
   const [numberOfRounds, setNumberOfRounds] = useState(1);
@@ -34,12 +35,12 @@ const EmomTimer = () => {
   }, [isRunning]);
 
   const startTimer = () => {
-    if(Number(numberOfSeconds)===0 || Number(numberOfSeconds)==0){
-      alert('Please enter workout time and Number of Rounds')
-    }else{
-      if(flag){
+    if (Number(numberOfSeconds) === 0 || Number(numberOfSeconds) == 0) {
+      alert("Please enter workout time and Number of Rounds");
+    } else {
+      if (flag) {
         setCountNumberOfRounds(1);
-        setFlag(false)
+        setFlag(false);
       }
       setShowOtherButtons(true);
       leadTimeHeading.style.color = "white";
@@ -73,6 +74,7 @@ const EmomTimer = () => {
   }
   async function saveLogsToDB() {
     let obj = {
+      userId: userId,
       userName: userName,
       workoutName: "EMOM Timer",
       numberOfRounds: numberOfRounds,
@@ -92,7 +94,7 @@ const EmomTimer = () => {
       if (minute < 0) {
         countNumberOfRounds++;
         setCountNumberOfRounds(countNumberOfRounds);
-        if (countNumberOfRounds === (Number(numberOfRounds)+1)) {
+        if (countNumberOfRounds === Number(numberOfRounds) + 1) {
           console.log("workout completed");
           setmyAlert(true);
           setHideContiner(false);
