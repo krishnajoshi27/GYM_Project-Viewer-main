@@ -18,20 +18,26 @@ const Notification = () => {
   };
   return (
     <>
-      <h1>This is feedback of user</h1>
+<div className="feedback-section">
+    <h1 className="feedback-title">Feedback from Users</h1>
+    <table className="feedback-table">
       <thead>
         <tr>
           <th>Comment</th>
           <th>Performance</th>
         </tr>
       </thead>
-      {feedBack &&
-        feedBack.map((f) => (
-          <tr key={f._id}>
-            <td>{f.comment}</td>
-            <td>{f.performance}</td>
-          </tr>
-        ))}
+      <tbody>
+        {feedBack &&
+          feedBack.map((f) => (
+            <tr key={f._id}>
+              <td>{f.comment}</td>
+              <td>{f.performance}</td>
+            </tr>
+          ))}
+      </tbody>
+    </table>
+  </div>
     </>
   );
 };

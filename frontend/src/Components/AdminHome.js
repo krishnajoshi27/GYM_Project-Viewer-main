@@ -10,15 +10,6 @@ export default function AdminHome() {
     comment: "",
   });
 
-  // useEffect(() => {
-  //   getAllUserData();
-  // }, []);
-
-  // const getAllUserData = async () => {
-  //   const userData = await axios.get('http://localhost:8080/admin/getAllUsers');
-  //   setData(userData.data);
-  // };
-
   useEffect(() => {
     getAllUserData();
   }, []);
@@ -27,7 +18,6 @@ export default function AdminHome() {
     const userData = await axios.get(
       "http://localhost:8080/workout/getWorkouts"
     );
-    console.log(userData.data);
     setData(userData.data);
   };
 
@@ -37,16 +27,30 @@ export default function AdminHome() {
       [event.target.name]: event.target.value,
     });
   };
-  //new
+
+  // Function to display the feedback in a new window
+  const handleProvideFeedback = () => {
+    const feedbackData = {
+      comment: feedback.comment,
+      performance: feedback.performance,
+    };
+
+    const feedbackWindow = window.open("", "_blank", "height=400,width=600");
+    feedbackWindow.document.write(`
+      <div style="padding: 20px;">
+        <h1>This is feedback</h1>
+        <p><strong>Performance:</strong> ${feedbackData.performance}</p>
+        <p><strong>Comment:</strong> ${feedbackData.comment}</p>
+      </div>
+    `);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       // Send feedback data to the backend API endpoint
-      const res = await axios.post(
-        "http://localhost:8080/admin/submitFeedback",
-        feedback
-      );
+      await axios.post("http://localhost:8080/admin/submitFeedback", feedback);
 
       // Clear the form input values
       setFeedback({
@@ -55,10 +59,8 @@ export default function AdminHome() {
         comment: "",
       });
     } catch (error) {
-      // Handle any errors that occur during form submission
       console.error("Error submitting feedback:", error);
     }
-    //over
   };
 
   return (
@@ -98,36 +100,39 @@ export default function AdminHome() {
               ))}
           </tbody>
         </table>
-
-        {/* Feedback Form */}
-        {feedback.userId && (
-          <div className="feedback-section">
-            <h2>Provide Feedback</h2>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="performance">Performance:</label>
-                <input
-                  type="text"
-                  id="performance"
-                  name="performance"
-                  value={feedback.performance}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="comment">Comment:</label>
-                <textarea
-                  id="comment"
-                  name="comment"
-                  value={feedback.comment}
-                  onChange={handleInputChange}
-                ></textarea>
-              </div>
-              <button type="submit">Submit Feedback</button>
-            </form>
-          </div>
-        )}
       </div>
+
+      {/* Feedback Form */}
+      {feedback.userId && (
+        <div className="feedback-section">
+          <h2>Provide Feedback</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="performance">Performance:</label>
+              <input
+                type="text"
+                id="performance"
+                name="performance"
+                value={feedback.performance}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="comment">Comment:</label>
+              <textarea
+                id="comment"
+                name="comment"
+                value={feedback.comment}
+                onChange={handleInputChange}
+              ></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+            <button type="button" onClick={handleProvideFeedback}>
+              View Feedback
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

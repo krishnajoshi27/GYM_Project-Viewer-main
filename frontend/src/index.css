@@ -30,4 +30,43 @@ nav {
   color: white !important;
 }
 
+.feedback-section {
+  margin-top: 20px;
+}
+
+.feedback-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-table th,
+.feedback-table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.feedback-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #555;
+}
+
+.feedback-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.feedback-table tbody tr:hover {
+  background-color: #e6f7ff;
+}
+
 

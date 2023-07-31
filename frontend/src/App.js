@@ -13,6 +13,7 @@ import EmailVerify from './auth/EmailVerify'
 import ForgetPassword from './auth/ForgetPassword'
 import AdminLogin from "./auth/AdminLogin";
 import AdminHome from "./Components/AdminHome";
+import Notification from "./Components/Notification";
 //import { AdminLogin } from "./auth/AdminLogin";
 
 
@@ -28,6 +29,8 @@ function App() {
         <Route path="admin" element={<AdminLogin/>}></Route>
         <Route path="adminhome" element={<AdminHome/>}></Route>
         <Route path="forgetpassword" element={<ForgetPassword/>}></Route>
+        <Route path="/notification" element={<Notification/>}></Route>
+        
         <Route path="user/:id/verify/:token" element={<EmailVerify />} />
 
         {/* <Route path="workoutlog" element={<WorkoutLog />}></Route> */}
