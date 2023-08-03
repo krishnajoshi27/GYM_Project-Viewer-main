@@ -10,6 +10,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+//new
+import { Visibility, VisibilityOff } from '@mui/icons-material'; 
+import IconButton from '@mui/material/IconButton';
+//over
 // import env from '../env.json'
 import axios from 'axios'
 import { useState } from 'react';
@@ -35,7 +39,14 @@ const defaultTheme = createTheme();
 
 export default function AdminLogin() {
 const [loading,setLoading] = useState(false)
+//new
+const [showPassword, setShowPassword] = useState(false);
+//over
 const navigate = useNavigate()
+
+const handleTogglePasswordVisibility = () => {
+  setShowPassword(!showPassword);
+};
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -117,9 +128,16 @@ const navigate = useNavigate()
               fullWidth
               name="password"
               label="Password"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="password"
               autoComplete="current-password"
+              InputProps={{
+                endAdornment: (
+                  <IconButton onClick={handleTogglePasswordVisibility}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                ),
+              }}
             />
             {/* {error && <div style={{color:'red',margin:'5px',padding:'5px'}}>{error}</div>} */}
 

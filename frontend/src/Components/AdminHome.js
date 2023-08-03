@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../css/workStyles.css";
+import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import axios from "axios";
+import "../css/workStyles.css";
 
 export default function AdminHome() {
   const [data, setData] = useState([]);
@@ -28,21 +31,15 @@ export default function AdminHome() {
     });
   };
 
-  // Function to display the feedback in a new window
-  const handleProvideFeedback = () => {
-    const feedbackData = {
-      comment: feedback.comment,
-      performance: feedback.performance,
-    };
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
 
-    const feedbackWindow = window.open("", "_blank", "height=400,width=600");
-    feedbackWindow.document.write(`
-      <div style="padding: 20px;">
-        <h1>This is feedback</h1>
-        <p><strong>Performance:</strong> ${feedbackData.performance}</p>
-        <p><strong>Comment:</strong> ${feedbackData.comment}</p>
-      </div>
-    `);
+  const handleProvideFeedback = (user) => {
+    setFeedback({ ...feedback, userId: user.userId });
+    setIsFeedbackModalOpen(true);
+  };
+
+  const handleFeedbackModalClose = () => {
+    setIsFeedbackModalOpen(false);
   };
 
   const handleSubmit = async (event) => {
@@ -58,6 +55,9 @@ export default function AdminHome() {
         performance: "",
         comment: "",
       });
+
+      // Close the modal
+      setIsFeedbackModalOpen(false);
     } catch (error) {
       console.error("Error submitting feedback:", error);
     }
@@ -89,9 +89,7 @@ export default function AdminHome() {
                   <td>{user.numberOfRounds}</td>
                   <td>
                     <button
-                      onClick={() =>
-                        setFeedback({ ...feedback, userId: user.userId })
-                      }
+                      onClick={() => handleProvideFeedback(user)}
                     >
                       Provide Feedback
                     </button>
@@ -102,9 +100,15 @@ export default function AdminHome() {
         </table>
       </div>
 
-      {/* Feedback Form */}
-      {feedback.userId && (
-        <div className="feedback-section">
+      {/* Feedback Form Modal */}
+      <Modal
+        open={isFeedbackModalOpen}
+        onClose={handleFeedbackModalClose}
+        aria-labelledby="feedback-modal-title"
+        aria-describedby="feedback-modal-description"
+      >
+        <div className="feedback-modal">
+        <div className="feedback-modal-content">
           <h2>Provide Feedback</h2>
           <form onSubmit={handleSubmit}>
             <div>
@@ -127,12 +131,10 @@ export default function AdminHome() {
               ></textarea>
             </div>
             <button type="submit">Submit Feedback</button>
-            <button type="button" onClick={handleProvideFeedback}>
-              View Feedback
-            </button>
           </form>
         </div>
-      )}
+        </div>
+      </Modal>
     </div>
   );
 }

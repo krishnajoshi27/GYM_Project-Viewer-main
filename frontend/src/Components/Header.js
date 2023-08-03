@@ -45,9 +45,9 @@ const Header = () => {
           <NavLink style={navLinkStyles} to="/" className="workstyles">
             <li>WorkStyles</li>
           </NavLink>
-          {token && <NavLink style={navLinkStyles} to="/workoutlog" className="logs">
+          {/* {token && <NavLink style={navLinkStyles} to="/workoutlog" className="logs">
             <li>Logs</li>
-          </NavLink>}
+          </NavLink>} */}
           <NavLink style={navLinkStyles} to="/about" className="about">
             <li>About</li>
           </NavLink>
