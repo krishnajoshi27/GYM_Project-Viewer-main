@@ -3,7 +3,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+//import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -13,7 +13,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import env from '../env.json'
 import axios from 'axios'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 import Swal from 'sweetalert2'
 import Loader from '../Components/Loader';
 function Copyright(props) {
@@ -99,6 +100,9 @@ const navigate = useNavigate()
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          <Link to="/admin">
+            Admin Login
+          </Link>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1,color:'#d6a512' }}>
             <TextField
               margin="normal"

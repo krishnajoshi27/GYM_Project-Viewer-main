@@ -106,6 +106,7 @@ export default function AdminHome() {
         onClose={handleFeedbackModalClose}
         aria-labelledby="feedback-modal-title"
         aria-describedby="feedback-modal-description"
+        className="centered-modal"
       >
         <div className="feedback-modal">
         <div className="feedback-modal-content">
