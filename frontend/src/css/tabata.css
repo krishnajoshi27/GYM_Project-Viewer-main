@@ -1,0 +1,174 @@
+.tabata-container {
+    /* position: absolute; */
+    background-color: #222242;
+    height: 691px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .tabata-container h1 {
+    position: relative;
+    top: 30px;
+    /* left:2px; */
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: rgb(247, 247, 247);
+  }
+  .tabata-form {
+    display: inline-block;
+    color: orange;
+    border: 2px solid orange;
+    border-radius: 10px;
+    position: relative;
+    left:12px;
+    top: 50px;
+    padding: 10px;
+  }
+  .tabata-form input {
+    border-radius: 5px;
+    width: 5em;
+    border: 3px solid rgb(226, 224, 224);
+    background-color: black;
+    color: orange;
+  }
+  .label {
+    padding: 13px;
+    font-family: fantasy;
+  }
+  .tabata-wrapper {
+    position: relative;
+    top: 270px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .tabata-wrapper p {
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    z-index: 9999;
+    font-size: 48px;
+    margin-bottom: 120px;
+  }
+  .tabata-wrapper p::before {
+    /* display: none; */
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #151538;
+    z-index: -1;
+    border-radius: 50%;
+    left: 0%;
+    top: -87%;
+    animation-name: shine;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes shine {
+    0%,
+    100% {
+      box-shadow: 0px 0px 32px -12px rgba(14, 222, 24, 0.9);
+    }
+    50% {
+      box-shadow: 0px 0px 32px 3px rgba(14, 222, 24, 0.9);
+    }
+  }
+  button {
+    background-color: #222242;
+    padding: 10px 38px;
+    border: 1px solid #a9a9a9;
+  
+    color: #fff;
+    transition: all 0.2s ease;
+    outline: 0;
+  }
+  .btn-start,
+  .btn-stop,
+  .btn-reset {
+    border-radius: 100px;
+  }
+  button:not(:last-child) {
+    margin-right: 20px;
+  }
+  button:hover,
+  button:focus {
+    border-color: #f6b400;
+    color: #f6b400;
+    box-shadow: 0px 4px 27px -12px #f6b400;
+  }
+  .btn-start:hover {
+    border-color: #5cd72c;
+    color: #5cd72c;
+    box-shadow: 0px 4px 27px -12px #5cd72c;
+  }
+  .btn-reset:hover {
+    border-color: #d71717;
+    color: #d71717;
+    box-shadow: 0px 4px 27px -12px #d71717;
+  }
+  #modal-content {
+    /* border-radius: 50%; */
+    background-color: black;
+    height: 100%;
+    width: 100%
+  }
+  #modal-body {
+    color: white;
+    position: relative;
+    top:35%;
+    left:45%
+  
+  }
+  #modal-body h1 {
+    font-size: 200px;
+    color: white;
+    opacity: 1;
+  }
+  /* #timer-clock span{
+    display: none;
+  } */
+  
+  @media screen and (max-width: 480px) {
+    .btn-start,
+    .btn-stop,
+    .btn-reset {
+      width: 110px;
+    }
+    #tabata-button {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .tabata-container {
+      /* position: absolute; */
+      background-color: #222242;
+      height: 617px;
+      max-width: 100%;
+      text-align: center;
+    }
+    
+    .tabata-container h1 {
+      position: relative;
+      top: 20px;
+      /* left:2px; */
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+      color: rgb(247, 247, 247);
+    }
+    .tabata-form {
+      display: inline-block;
+      color: orange;
+      border: 2px solid orange;
+      border-radius: 10px;
+      position: relative;
+      left:12px;
+      top: 30px;
+      padding: 10px;
+    }
+    .tabata-wrapper {
+      position: relative;
+      top: 240px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
